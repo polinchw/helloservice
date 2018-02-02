@@ -1,8 +1,10 @@
-hash: 13dd99ae2205281094697c8f0ba7ef19d19fd5d91ce836bb0879291b848a5cc7
-updated: 2018-02-02T13:36:59.640809693-05:00
+hash: 1c1f4b23a2338f5fe2c3a476c2eb986dfd7e1cfdd5d0827b1a764b1110699ffd
+updated: 2018-02-02T15:04:41.534552419-05:00
 imports:
 - name: github.com/gorilla/context
   version: 08b5f424b9271eedf6f9f0ce86cb9396ed337a42
 - name: github.com/gorilla/mux
   version: 53c1911da2b537f792e7cafcb446b05ffe33b996
+- name: github.com/somyagarg94/helloservice
+  version: 12272af6624cdcfff7a2a4b0ab90bbec2d1faf8a
 testImports: []
