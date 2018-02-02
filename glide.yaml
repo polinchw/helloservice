@@ -1,6 +1,5 @@
 package: github.com/somyagarg94/helloservice
-owners:
-- name: Somya Garg
-  email: contact.somyagarg@gmail.com
 import:
 - package: github.com/gorilla/mux
+  version: ~1.6.1
+
