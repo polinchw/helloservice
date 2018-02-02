@@ -23,9 +23,9 @@ func GetHelloName(s http.ResponseWriter, r *http.Request) {
 //
 func GetCounts(s http.ResponseWriter, r *http.Request) {
 
-	var count int
-	count++
-	s.Header().Set("X-Call-Count", fmt.Fprintln("%d", count))
+	//var count int
+	//count++
+	//s.Header().Set("X-Call-Count", fmt.Fprintln("%d", count))
 
 }
 

@@ -2,11 +2,13 @@ package pkg
 
 import (
 	"io"
+	"log"
 	"net/http"
 )
 
 // HealthChecker checks the health of api and returns the JSON
 func HealthChecker(s http.ResponseWriter, r *http.Request) {
+	log.Println("Responsing to /health request")
 	// A very simple health check.
 	s.WriteHeader(http.StatusOK)
 	s.Header().Set("Content-Type", "application/json")
