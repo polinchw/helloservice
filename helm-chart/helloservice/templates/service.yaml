@@ -4,6 +4,7 @@ metadata:
   name: {{ .Values.name }}
   labels:
     app_name: {{ .Values.name }}
+    app_version: {{ .Values.image.tag | quote }}
     helm_chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 spec:
   type: {{ .Values.serviceType | quote }}

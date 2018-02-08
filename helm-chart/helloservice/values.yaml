@@ -1,6 +1,10 @@
 name: helloservice
 
-image: quay.io/somyagarg1994/helloservice:1.1.1
+image:
+  repository: quay.io
+  name: somyagarg1994/helloservice
+  tag: 1.1.1
+  pullPolicy: IfNotPresent
 
 replicas: 1
 

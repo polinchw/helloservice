@@ -4,6 +4,7 @@ metadata:
   name: {{ .Values.name }}
   labels:
     app_name: {{ .Values.name }}
+    app_version: {{ .Values.image.tag | quote }}
     helm_chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 spec:
   revisionHistoryLimit: 30
@@ -20,11 +21,13 @@ spec:
     metadata:
       labels:
         app_name: {{ .Values.name }}
+        app_version: {{ .Values.image.tag | quote }}
         helm_chart: {{ .Chart.Name }}-{{ .Chart.Version }}
     spec:
       containers:
       - name: {{ .Values.name }}
-        image: {{ .Values.image }}
+        image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        imagePullPolicy: "{{ .Values.image.pullPolicy }}"
         ports:
           - containerPort: 12345
         readinessProbe:
