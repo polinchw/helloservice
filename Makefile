@@ -12,9 +12,12 @@ BUILD_ENV = CGO_ENABLED=0
 STATIC_FLAGS = -a -installsuffix cgo
 TOOLS_DIR := tools
 
-# Glide configuration
+# Glide configuration.
 GLIDE_VERSION = v0.13.1
 GO_PLATFORM = $(HOST_GOOS)-$(HOST_GOARCH)
+
+# GCLOUD version variable.
+GOOGLE_CLOUD_SDK_VERSION=188.0.1
 
 # QUAY.io variables.
 QUAY_REPO=somyagarg1994
@@ -27,6 +30,14 @@ IMAGE = quay.io/$(QUAY_REPO)/$(APP_NAME)
 build: build-app build-image clean 
 
 push: docker-login push-image docker-logout
+
+install-gcloud:
+	curl -fsSLo google-cloud-sdk.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-$(GOOGLE_CLOUD_SDK_VERSION)-linux-x86_64.tar.gz && \
+    tar -xzf google-cloud-sdk.tar.gz && \
+    rm google-cloud-sdk.tar.gz && \
+    ./google-cloud-sdk/install.sh --quiet && \
+    ./google-cloud-sdk/bin/gcloud components install kubectl && \
+    rm -rf ./google-cloud-sdk/.install
 
 install-glide:
 	mkdir -p tools
@@ -66,7 +77,7 @@ push-image:
 	docker rmi $(IMAGE):$(VERSION)
 
 clean:
-	rm -rf tools vendor .glide
+	rm -rf tools vendor .glide google-cloud-sdk
 
 run:
 	docker-compose up -d
