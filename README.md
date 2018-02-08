@@ -25,12 +25,12 @@ A RESTful API example for simple helloservice application with Go.
 │       └── counts_test.go 
 ├── helm-chart              // Helm chart(Kubernetes Package Manager for deploying helloservice in cluster)
 │   └── helloservice
-│       └── templates
-│            ├── deployment.yaml
-│            ├── ingress.yaml
-│            └── service.yaml 
-│        ├── Chart.yaml
-│        └── values.yaml       
+│       ├── templates
+│       │     ├── deployment.yaml
+│       │     ├── ingress.yaml
+│       │     └── service.yaml 
+│       ├── Chart.yaml
+│       └── values.yaml       
 └── main.go
 ```
 
