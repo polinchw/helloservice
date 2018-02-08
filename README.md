@@ -23,7 +23,7 @@ A RESTful API example for simple helloservice application with Go.
 │   └── counts
 │       ├── counts.go        // APIs for getting counts
 │       └── counts_test.go 
-├── helm-chart  // Helm chart(Kubernetes Package Manager for deploying helloservice in cluster)
+├── helm-chart              // Helm chart(Kubernetes Package Manager for deploying helloservice in cluster)
 │   └── helloservice
 │       └── templates
 │            ├── deployment.yaml
