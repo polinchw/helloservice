@@ -37,7 +37,7 @@ install-gcloud:
     rm google-cloud-sdk.tar.gz && \
     ./google-cloud-sdk/install.sh --quiet && \
     ./google-cloud-sdk/bin/gcloud components install kubectl && \
-    rm -rf ./google-cloud-sdk/.install
+    rm -rf google-cloud-sdk
 
 install-glide:
 	mkdir -p tools
@@ -77,7 +77,7 @@ push-image:
 	docker rmi $(IMAGE):$(VERSION)
 
 clean:
-	rm -rf tools vendor .glide google-cloud-sdk
+	rm -rf tools vendor .glide 
 
 run:
 	docker-compose up -d
@@ -93,6 +93,7 @@ create:
 	chmod 700 get_helm.sh
 	./get_helm.sh
 	helm init
+	rm -rf get_helm.sh
 
 	kubectl get nodes
 
