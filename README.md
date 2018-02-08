@@ -6,7 +6,7 @@ A RESTful API example for simple helloservice application with Go.
 
 ## API Endpoint
 - http://helloservice.example.com/hello:name
-    - `GET`: responds with Hello, <name>!
+    - `GET`: responds with Hello,< name >!
 - http://helloservice.example.com/health
     - `GET`: responds with system stats
 - http://helloservice.example.com/counts
