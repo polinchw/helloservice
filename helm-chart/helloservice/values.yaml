@@ -1,0 +1,12 @@
+name: helloservice
+
+image: quay.io/somyagarg1994/helloservice:1.1.1
+
+replicas: 1
+
+serviceType: LoadBalancer
+
+nodeSelector: {}
+
+ingress:
+  hostname: helloservice.example.com
