@@ -2,6 +2,8 @@
 
 A RESTful API example for simple helloservice application with Go.
 
+![Helloservice!](img/GO-GKE.png)
+
 ## API Endpoint
 - http://helloservice.example.com/hello:name
     - `GET`: responds with Hello, <name>!
