@@ -48,7 +48,7 @@ The following repository will create you a Kubernetes cluster using:
  
  This repository setup the following:
  
- - 1 Worker node
+ - 2 Worker node
 
 ## Prerequisites
 

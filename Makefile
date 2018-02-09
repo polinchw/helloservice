@@ -87,7 +87,7 @@ create:
 	gcloud container clusters create helloservice \
     --zone us-east1-c \
     --machine-type n1-standard-1 \
-    --num-nodes 1
+    --num-nodes 2
 
 	curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
 	chmod 700 get_helm.sh
