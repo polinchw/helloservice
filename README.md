@@ -15,7 +15,7 @@ A RESTful API example for simple helloservice application with Go.
 
 ## Assumptions
 
-- Assuming there is no DB involved and only will be keep count of names during single runtime.
+- Assuming there is no DB involved and only will be keeping count of names during single runtime.
 
 ## Structure
 ```
