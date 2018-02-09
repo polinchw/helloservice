@@ -11,7 +11,7 @@ A RESTful API example for simple helloservice application with Go.
     - `GET`: responds with system stats
 - http://helloservice.example.com/counts
     - `GET`: returns a JSON response with the counts of how many times each name has been called
-    - `DELETE`: remove counts
+    - `DELETE`: remove counts 
 
 ## Structure
 ```
@@ -35,6 +35,10 @@ A RESTful API example for simple helloservice application with Go.
 │       └── values.yaml       
 └── main.go
 ```
+## Assumptions
+
+- Assuming there is no DB involved and only will be keep count of names during single runtime.
+
 
 The following repository will create you a Kubernetes cluster using:
 
