@@ -29,17 +29,19 @@ spec:
         image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
         imagePullPolicy: "{{ .Values.image.pullPolicy }}"
         ports:
-          - containerPort: 12345
-        readinessProbe:
+        - containerPort: 12345
+        livenessProbe:
           httpGet:
-            path: /hello:name
-            port: 12345
-            path: /health
-            port: 12345
             path: /counts
             port: 12345
           initialDelaySeconds: 30
-          timeoutSeconds: 30
+          timeoutSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /counts
+            port: 12345
+          initialDelaySeconds: 30
+          timeoutSeconds: 10
         resources:
 {{ toYaml .Values.resources | indent 12 }}
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
