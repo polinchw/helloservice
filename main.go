@@ -6,7 +6,6 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/somyagarg94/helloservice/pkg"
 	"github.com/somyagarg94/helloservice/pkg/count"
 	"github.com/somyagarg94/helloservice/pkg/health"
 	"github.com/somyagarg94/helloservice/pkg/hello"
@@ -20,6 +19,6 @@ func main() {
 	router.HandleFunc("/hello:{name}", hello.GetHelloName).Methods("GET")
 	router.HandleFunc("/health", health.GetHealthChecker).Methods("GET")
 	router.HandleFunc("/counts", count.GetCounts).Methods("GET")
-	router.HandleFunc("/counts", pkg.DeleteCounts).Methods("DELETE")
+	router.HandleFunc("/counts", count.DeleteCounts).Methods("DELETE")
 	log.Fatal(http.ListenAndServe(*addr, router))
 }
