@@ -25,19 +25,16 @@ func AddCount(name string) {
 
 //GetCounts will returns a JSON response with the counts of how many times a name has been called.
 func GetCounts(s http.ResponseWriter, r *http.Request) {
+
 	var buffer bytes.Buffer
 
 	buffer.WriteString("[")
-
 	i := 0
-
 	for k, v := range count {
-
 		buffer.WriteString("{" + "\"name\":" + "\"" + k + "\"," + "\"count\": " + strconv.Itoa(v) + "}")
 		if i != len(count)-1 {
 			buffer.WriteString(",")
 		}
-
 		i++
 	}
 
