@@ -14,8 +14,11 @@ A RESTful API example for simple helloservice application with Go.
     - `DELETE`: remove counts 
 
 ## Assumptions
-
-- Assuming there is no DB involved and only will be keeping count of names during single runtime.
+- Application:
+    - Assuming there is no DB involved and only will be keeping count of names during single runtime.
+- Deployment(GKE):
+    - Using n1-standard-1 machine type in GKE.
+    - Application will be deployed in us-east1-c zone.
 
 ## Structure
 ```
@@ -48,7 +51,7 @@ The following repository will create you a Kubernetes cluster using:
  
  This repository setup the following:
  
- - 2 Worker node
+ - 2 Worker nodes
 
 ## Prerequisites
 
