@@ -12,6 +12,8 @@ LABEL git.branch=$git_branch
 LABEL build.dockerfile=/Dockerfile
 LABEL build.on=$built_on
 
+EXPOSE 12345
+
 COPY ./Dockerfile /Dockerfile
 
 ADD bin/linux/helloservice /
