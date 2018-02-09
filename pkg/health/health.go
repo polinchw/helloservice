@@ -13,7 +13,6 @@ var ErrBadRequest = errors.New("bad request")
 
 // GetHealthChecker maps results to the expected endpoint response.
 func GetHealthChecker(s http.ResponseWriter, r *http.Request) {
-	log.Println("Responsing to /health request")
 
 	results := make(map[string]float32)
 
