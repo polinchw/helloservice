@@ -2,53 +2,39 @@ package health
 
 import (
 	"encoding/json"
-	"errors"
 	"log"
 	"net/http"
 	"runtime"
 )
-
-// ErrBadRequest indicates provided parameters did not match specification
-var ErrBadRequest = errors.New("bad request")
 
 // GetHealthChecker maps results to the expected endpoint response.
 func GetHealthChecker(s http.ResponseWriter, r *http.Request) {
 
 	results := make(map[string]float32)
 
-	// get number of Goroutines
-	numRoutines := runtime.NumGoroutine()
-	results["GoRoutines"] = float32(numRoutines)
+	// get Number of logical CPUs usable by current process.
+	numCPU := runtime.NumCPU()
+	results["NumOfLogicalCPUsAvailable"] = float32(numCPU)
 
-	// get memory stats
 	var memStats runtime.MemStats
 	runtime.ReadMemStats(&memStats)
 
-	// bytes allocated and not yet freed
-	results["MemAlloc"] = float32(memStats.Alloc)
-
-	// number of frees
+	//Frees is the cumulative count of heap objects freed.
 	results["MemFrees"] = float32(memStats.Frees)
 
-	// bytes allocated and not yet freed
-	results["MemHeapAlloc"] = float32(memStats.HeapAlloc)
-
-	// total number of allocated objects
-	results["MemHeapObjects"] = float32(memStats.HeapObjects)
-
-	// bytes obtained from system
-	results["MemHeapSys"] = float32(memStats.HeapSys)
-
-	// number of mallocs
-	results["MemMallocs"] = float32(memStats.Mallocs)
-
-	// total number of garbage collections
-	results["MemNumGc"] = float32(memStats.NumGC)
-
-	// bytes obtained from system
-	results["MemSys"] = float32(memStats.Sys)
+	/*
+		Other helful information are also available like:
+		TotalAlloc 		- TotalAlloc is cumulative bytes allocated for heap objects.
+		HeapAlloc 		-  HeapAlloc is bytes of allocated heap objects.
+		HeapSys	   	    -  HeapSys is bytes of heap memory obtained from the OS.
+		HeapIdle		-  HeapIdle is bytes in idle (unused) spans.
+		HeapInuse   	-  HeapInuse is bytes in in-use spans.
+		HeapReleased    -  HeapReleased is bytes of physical memory returned to the OS.
+		and a lot more options that may help developers and systems engineers to troubleshoot the program are available.
+	*/
 
 	res, err := json.Marshal(results)
+
 	if err != nil {
 		log.Printf("error: couldn't marshal queue metrics to json")
 		s.WriteHeader(http.StatusInternalServerError)
