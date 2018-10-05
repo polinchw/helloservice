@@ -8,7 +8,7 @@ image:
 
 replicas: 1
 
-serviceType: LoadBalancer
+serviceType: ClusterIP
 
 nodeSelector: {}
 
